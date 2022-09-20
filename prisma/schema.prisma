@@ -8,9 +8,35 @@ datasource db {
 }
 
 model Users {
-  id       Int    @id @default(autoincrement())
-  email    String @unique
+  id       Int     @id @default(autoincrement())
+  email    String  @unique
   password String
+  Decks    Decks[]
 
   @@map("users")
+}
+
+model Decks {
+  id            Int             @id @default(autoincrement())
+  name          String
+  userId        Int
+  user          Users           @relation(fields: [userId], references: [id])
+  DeckQuestions DeckQuestions[]
+
+  @@unique([name, userId])
+  @@map("decks")
+}
+
+model DeckQuestions {
+  id            Int       @id @default(autoincrement())
+  question      String
+  answer        String
+  wrongAnswer1  String
+  wrongAnswer2  String
+  wrongAnswer3  String
+
+  deckId        Int
+  deck          Decks     @relation(fields: [deckId], references: [id])
+
+  @@map("deckQuestions")
 }

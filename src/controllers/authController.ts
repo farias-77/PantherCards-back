@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { TUser } from "../types/userTypes";
 
-import * as authServices from "../services/authServices"
+import * as authServices from "../services/authServices";
 
 export async function signUp(req: Request, res: Response){
     const user: TUser = {email: req.body.email, password: req.body.password};
