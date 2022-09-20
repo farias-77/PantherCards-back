@@ -29,19 +29,19 @@ export async function insertUser(user: TUser): Promise<Users>{
 }
 
 export async function validatePassword(userBody: TUser){
-    const userDatabase: Users | null = await findByEmail(userBody.email);
+    const userDatabase: (Users | null) = await findByEmail(userBody.email);
     
-    if( !userDatabase || !( await bcrypt.compare(userBody.password, userDatabase.password) )){
+    if(!userDatabase || !( await bcrypt.compare(userBody.password, userDatabase.password) )){
         throw{type: "unauthorized", message: "Invalid credentials."};
     }
 
     return;
 }
 
-export async function generateToken(email: string){
-    const user: Users | null = await findByEmail(email);
+export async function generateToken(email: string): Promise<string>{
+    const user: (Users | null) = await findByEmail(email);
     
-    const secretKey: string = process.env.JWT_SECRET || "";
+    const secretKey: string = String(process.env.JWT_SECRET);
     const token: string = (user ? jwt.sign({ id: user.id }, secretKey) : "");
 
     return token;

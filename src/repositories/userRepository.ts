@@ -10,8 +10,10 @@ export async function findByEmail(email: string): Promise<Users | null>{
     });
 }
 
-export async function insertUser(user: TUser){
-    return await prisma.users.create({
+export async function insertUser(user: TUser): Promise<Users> {
+    const createdUser: Users = await prisma.users.create({
         data: user
     });
+
+    return createdUser;
 }
