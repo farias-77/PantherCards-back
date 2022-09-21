@@ -13,8 +13,8 @@ export const deckQuestionsCreationSchema = joi.object({
             joi.object({
                 question: joi.string().required(),
                 answer: joi.string().required(),
-                deckId: joi.number().required(),
             })
         )
         .required(),
+    deckId: 4,
 });

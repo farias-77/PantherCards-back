@@ -3,7 +3,6 @@ import { Decks, DeckQuestions } from "@prisma/client";
 export type TDeckQuestion = {
     question: string;
     answer: string;
-    deckId: number;
 };
 
 export type TDeck = {
@@ -11,7 +10,8 @@ export type TDeck = {
 };
 
 export type TDeckWithQuestions = {
-    name: string;
-    userId: number;
-    questions: TDeckQuestion[];
+    id: number | undefined;
+    name: string | undefined;
+    userId: number | undefined;
+    questions: DeckQuestions[];
 };

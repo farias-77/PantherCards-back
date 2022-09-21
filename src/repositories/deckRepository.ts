@@ -14,16 +14,21 @@ export async function insertDeck(deck: TDeck, userId: number): Promise<Decks> {
 }
 
 export async function insertDeckQuestion(
-    deckQuestion: TDeckQuestion
+    deckQuestion: TDeckQuestion,
+    deckId: number
 ): Promise<DeckQuestions> {
     const createdQuestion: DeckQuestions = await prisma.deckQuestions.create({
-        data: deckQuestion,
+        data: {
+            question: deckQuestion.question,
+            answer: deckQuestion.answer,
+            deckId,
+        },
     });
 
     return createdQuestion;
 }
 
-export async function getDeck(id: number): Promise<Decks | null> {
+export async function getDeckById(id: number): Promise<Decks | null> {
     const deck: Decks | null = await prisma.decks.findFirst({
         where: { id },
     });
