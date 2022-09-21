@@ -6,11 +6,15 @@ export const deckCreationSchema = joi.object<TDeck>({
 });
 
 export const deckQuestionsCreationSchema = joi.object({
-    questions: joi.array().items(
-        joi.object({
-            question: joi.string().required(),
-            answer: joi.string().required(),
-            deckId: joi.number().required(),
-        })
-    ),
+    questions: joi
+        .array()
+        .min(1)
+        .items(
+            joi.object({
+                question: joi.string().required(),
+                answer: joi.string().required(),
+                deckId: joi.number().required(),
+            })
+        )
+        .required(),
 });

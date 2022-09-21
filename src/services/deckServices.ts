@@ -7,7 +7,8 @@ export async function insertDeck(deck: TDeck, userId: number) {
 }
 
 export async function validateNewDeckNameForUser(deck: TDeck, userId: number) {
-    const deckByName: Decks | null = await deckRepositories.getDeckByName(deck);
+    const deckByName: Decks | null =
+        await deckRepositories.getDeckByNameAndUserId(deck, userId);
 
     if (deckByName) {
         throw {
@@ -18,3 +19,8 @@ export async function validateNewDeckNameForUser(deck: TDeck, userId: number) {
 
     return;
 }
+
+export async function validateDeckBelongsToUser(
+    deckId: number,
+    userId: number
+) {}

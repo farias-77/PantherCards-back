@@ -41,9 +41,12 @@ export async function getDeckQuestions(
     return deckQuestions;
 }
 
-export async function getDeckByName(deck: TDeck): Promise<Decks | null> {
+export async function getDeckByNameAndUserId(
+    deck: TDeck,
+    userId: number
+): Promise<Decks | null> {
     const deckByName: Decks | null = await prisma.decks.findFirst({
-        where: { name: deck.name },
+        where: { name: deck.name, userId },
     });
 
     return deckByName;
