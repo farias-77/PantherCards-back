@@ -28,15 +28,12 @@ model Decks {
 }
 
 model DeckQuestions {
-  id            Int       @id @default(autoincrement())
-  question      String
-  answer        String
-  wrongAnswer1  String
-  wrongAnswer2  String
-  wrongAnswer3  String
+  id       Int    @id @default(autoincrement())
+  question String
+  answer   String
 
-  deckId        Int
-  deck          Decks     @relation(fields: [deckId], references: [id])
+  deckId Int
+  deck   Decks @relation(fields: [deckId], references: [id])
 
   @@map("deckQuestions")
 }
