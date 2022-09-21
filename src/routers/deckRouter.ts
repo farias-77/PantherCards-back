@@ -1,6 +1,10 @@
 import { schemaValidation } from "../middlewares/schemaValidationMiddleware";
 import tokenMiddleware from "../middlewares/tokenValidationMiddleware";
-import { insertDeck, insertQuestions } from "../controllers/deckController";
+import {
+    insertDeck,
+    insertQuestions,
+    getDeck,
+} from "../controllers/deckController";
 import {
     deckCreationSchema,
     deckQuestionsCreationSchema,
@@ -16,5 +20,6 @@ router.post(
     schemaValidation(deckQuestionsCreationSchema),
     insertQuestions
 );
+router.get("/deck/:deckId", getDeck);
 
 export default router;

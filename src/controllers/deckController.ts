@@ -22,8 +22,18 @@ export async function insertQuestions(req: Request, res: Response) {
     await deckServices.validateDeckExists(deckId);
     await deckServices.validateDeckBelongsToUser(deckId, userId);
     await deckServices.insertQuestions(questions, deckId);
-    const createdQuestions: TDeckWithQuestions =
-        await deckServices.getDeckWithQuestions(deckId);
+    const deck: TDeckWithQuestions = await deckServices.getDeckWithQuestions(
+        deckId
+    );
 
-    res.status(201).send(createdQuestions);
+    res.status(201).send(deck);
+}
+
+export async function getDeck(req: Request, res: Response) {
+    const deckId: number = Number(req.params.deckId);
+
+    await deckServices.validateDeckExists(deckId);
+    const deck = await deckServices.getDeckWithQuestions(deckId);
+
+    res.status(200).send(deck);
 }
