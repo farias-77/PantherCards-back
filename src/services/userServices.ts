@@ -78,6 +78,16 @@ export async function getUsernameById(
     return await userRepositories.getUsernameById(userId);
 }
 
+export async function getUsersByInput(input: string): Promise<Users[]> {
+    const users: Users[] = await userRepositories.getAllUsers();
+
+    const usersByInput: Users[] = users.filter((user: Users) =>
+        user.username.startsWith(input)
+    );
+
+    return usersByInput;
+}
+
 async function encryptsPassword(password: string): Promise<string> {
     const SALT: number = 10;
     const encryptedPassword: string = await bcrypt.hash(password, SALT);

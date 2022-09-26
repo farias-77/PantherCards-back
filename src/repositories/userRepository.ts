@@ -31,3 +31,7 @@ export async function getUsernameById(
 
     return user?.username;
 }
+
+export async function getAllUsers(): Promise<Users[]> {
+    return await prisma.users.findMany();
+}
