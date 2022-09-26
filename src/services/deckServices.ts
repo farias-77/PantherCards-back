@@ -78,6 +78,10 @@ export async function getDeckWithQuestions(
     return deckWQuestions;
 }
 
+export async function getDecksByUserId(userId: number) {
+    return await deckRepositories.getDecksByUserId(userId);
+}
+
 async function insertQuestion(
     question: TDeckQuestion,
     deckId: number

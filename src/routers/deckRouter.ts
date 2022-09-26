@@ -3,7 +3,8 @@ import tokenMiddleware from "../middlewares/tokenValidationMiddleware";
 import {
     insertDeck,
     insertQuestions,
-    getDeck,
+    getDeckById,
+    getDecksByUserId,
 } from "../controllers/deckController";
 import {
     deckCreationSchema,
@@ -14,12 +15,14 @@ import { Router } from "express";
 const router = Router();
 
 router.use(tokenMiddleware);
+
 router.post("/deck", schemaValidation(deckCreationSchema), insertDeck);
 router.post(
     "/deck-questions",
     schemaValidation(deckQuestionsCreationSchema),
     insertQuestions
 );
-router.get("/deck/:deckId", getDeck);
+router.get("/deck/:deckId", getDeckById);
+router.get("/deck/user/:userId", getDecksByUserId);
 
 export default router;

@@ -36,6 +36,10 @@ export async function getDeckById(id: number): Promise<Decks | null> {
     return deck;
 }
 
+export async function getDecksByUserId(userId: number): Promise<Decks[]> {
+    return await prisma.decks.findMany({ where: { userId } });
+}
+
 export async function getDeckQuestions(
     deckId: number
 ): Promise<DeckQuestions[]> {
