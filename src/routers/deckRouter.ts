@@ -21,7 +21,7 @@ router.use(tokenMiddleware);
 
 router.post("/deck", schemaValidation(deckCreationSchema), insertDeck);
 router.post(
-    "/deck-questions",
+    "/deck/questions/:deckId",
     schemaValidation(deckQuestionsCreationSchema),
     insertQuestions
 );

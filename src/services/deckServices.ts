@@ -71,13 +71,13 @@ export async function getDeckWithQuestions(
     deckId: number
 ): Promise<TDeckWithQuestions> {
     const deck: Decks | null = await getDeckById(deckId);
-    const questions: DeckQuestions[] = await getDeckQuestions(deckId);
-
+    const deckQuestions: DeckQuestions[] = await getDeckQuestions(deckId);
+    console.log(deckQuestions);
     const deckWQuestions: TDeckWithQuestions = {
         id: deck?.id,
         name: deck?.name,
         userId: deck?.userId,
-        questions,
+        questions: deckQuestions,
     };
 
     return deckWQuestions;
@@ -113,6 +113,6 @@ async function getDeckById(deckId: number): Promise<Decks | null> {
     return await deckRepositories.getDeckById(deckId);
 }
 
-async function getDeckQuestions(deckId: number) {
+async function getDeckQuestions(deckId: number): Promise<DeckQuestions[]> {
     return await deckRepositories.getDeckQuestions(deckId);
 }

@@ -22,7 +22,7 @@ export async function insertDeck(req: Request, res: Response) {
 
 export async function insertQuestions(req: Request, res: Response) {
     const userId: number = Number(res.locals.retornoJwtVerify.id);
-    const deckId: number = req.body.deckId;
+    const deckId: number = Number(req.params.deckId);
     const questions: TDeckQuestion[] = req.body.questions;
 
     await deckServices.validateDeckExists(deckId);

@@ -16,7 +16,6 @@ export const deckQuestionsCreationSchema = joi.object({
             })
         )
         .required(),
-    deckId: 4,
 });
 
 export const deckResultCreationSchema = joi.object<TDeckResult>({
