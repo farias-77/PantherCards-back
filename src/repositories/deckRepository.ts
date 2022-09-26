@@ -92,5 +92,6 @@ export async function getDeckResults(deckId: number): Promise<DeckResults[]> {
                 time: "asc",
             },
         ],
+        take: 10,
     });
 }
