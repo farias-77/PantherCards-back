@@ -1,6 +1,6 @@
-import { DeckQuestions, Decks } from "@prisma/client";
+import { DeckQuestions, DeckResults, Decks } from "@prisma/client";
 import { prisma } from "../config/database";
-import { TDeck, TDeckQuestion } from "../types/deckTypes";
+import { TDeck, TDeckQuestion, TDeckResult } from "../types/deckTypes";
 
 export async function insertDeck(deck: TDeck, userId: number): Promise<Decks> {
     const createdDeck: Decks = await prisma.decks.create({
@@ -59,4 +59,21 @@ export async function getDeckByNameAndUserId(
     });
 
     return deckByName;
+}
+
+export async function insertDeckResult(
+    deckResult: TDeckResult,
+    deckId: number,
+    userId: number
+): Promise<DeckResults> {
+    const createdDeckResult: DeckResults = await prisma.deckResults.create({
+        data: {
+            userId,
+            deckId,
+            score: deckResult.score,
+            time: deckResult.time,
+        },
+    });
+
+    return createdDeckResult;
 }

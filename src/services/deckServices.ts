@@ -1,6 +1,11 @@
-import { DeckQuestions, Decks } from "@prisma/client";
+import { DeckQuestions, DeckResults, Decks } from "@prisma/client";
 import * as deckRepositories from "../repositories/deckRepository";
-import { TDeck, TDeckQuestion, TDeckWithQuestions } from "../types/deckTypes";
+import {
+    TDeck,
+    TDeckQuestion,
+    TDeckResult,
+    TDeckWithQuestions,
+} from "../types/deckTypes";
 
 export async function insertDeck(deck: TDeck, userId: number) {
     return await deckRepositories.insertDeck(deck, userId);
@@ -80,6 +85,14 @@ export async function getDeckWithQuestions(
 
 export async function getDecksByUserId(userId: number) {
     return await deckRepositories.getDecksByUserId(userId);
+}
+
+export async function insertDeckResult(
+    deckResult: TDeckResult,
+    deckId: number,
+    userId: number
+): Promise<DeckResults> {
+    return await deckRepositories.insertDeckResult(deckResult, deckId, userId);
 }
 
 async function insertQuestion(

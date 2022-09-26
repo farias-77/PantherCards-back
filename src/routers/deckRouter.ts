@@ -5,10 +5,12 @@ import {
     insertQuestions,
     getDeckById,
     getDecksByUserId,
+    insertDeckResult,
 } from "../controllers/deckController";
 import {
     deckCreationSchema,
     deckQuestionsCreationSchema,
+    deckResultCreationSchema,
 } from "../schemas/deckSchemas";
 
 import { Router } from "express";
@@ -24,5 +26,10 @@ router.post(
 );
 router.get("/deck/:deckId", getDeckById);
 router.get("/deck/user/:userId", getDecksByUserId);
+router.post(
+    "/deck/result/:deckId",
+    schemaValidation(deckResultCreationSchema),
+    insertDeckResult
+);
 
 export default router;

@@ -1,9 +1,14 @@
-import { TDeck, TDeckQuestion, TDeckWithQuestions } from "../types/deckTypes";
+import {
+    TDeck,
+    TDeckQuestion,
+    TDeckResult,
+    TDeckWithQuestions,
+} from "../types/deckTypes";
 import { Request, Response } from "express";
 
 import * as deckServices from "../services/deckServices";
 import * as userServices from "../services/userServices";
-import { Decks } from "@prisma/client";
+import { DeckResults, Decks } from "@prisma/client";
 
 export async function insertDeck(req: Request, res: Response) {
     const userId: number = Number(res.locals.retornoJwtVerify.id);
@@ -46,4 +51,20 @@ export async function getDecksByUserId(req: Request, res: Response) {
     const decks: Decks[] = await deckServices.getDecksByUserId(userId);
 
     res.status(200).send(decks);
+}
+
+export async function insertDeckResult(req: Request, res: Response) {
+    const userId: number = Number(res.locals.retornoJwtVerify.id);
+    const deckId: number = Number(req.params.deckId);
+    const deckResult: TDeckResult = req.body;
+
+    await deckServices.validateDeckExists(deckId);
+    await userServices.validateUserExists(userId);
+    const createdDeckResult: DeckResults = await deckServices.insertDeckResult(
+        deckResult,
+        deckId,
+        userId
+    );
+
+    res.status(201).send(createdDeckResult);
 }

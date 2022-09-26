@@ -15,3 +15,8 @@ export type TDeckWithQuestions = {
     userId: number | undefined;
     questions: DeckQuestions[];
 };
+
+export type TDeckResult = {
+    score: number;
+    time: number;
+};
