@@ -72,7 +72,7 @@ export async function getDeckWithQuestions(
 ): Promise<TDeckWithQuestions> {
     const deck: Decks | null = await getDeckById(deckId);
     const deckQuestions: DeckQuestions[] = await getDeckQuestions(deckId);
-    console.log(deckQuestions);
+
     const deckWQuestions: TDeckWithQuestions = {
         id: deck?.id,
         name: deck?.name,

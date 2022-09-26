@@ -1,6 +1,6 @@
 import { schemaValidation } from "../middlewares/schemaValidationMiddleware";
-import { signUpSchema, signInSchema } from "../schemas/authSchemas";
-import { signIn, signUp } from "../controllers/authController";
+import { signUpSchema, signInSchema } from "../schemas/userSchemas";
+import { signIn, signUp } from "../controllers/userController";
 
 import { Router } from "express";
 const router = Router();
