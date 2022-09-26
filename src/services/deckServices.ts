@@ -95,6 +95,10 @@ export async function insertDeckResult(
     return await deckRepositories.insertDeckResult(deckResult, deckId, userId);
 }
 
+export async function getDeckResults(deckId: number) {
+    return await deckRepositories.getDeckResults(deckId);
+}
+
 async function insertQuestion(
     question: TDeckQuestion,
     deckId: number

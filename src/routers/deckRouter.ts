@@ -6,6 +6,7 @@ import {
     getDeckById,
     getDecksByUserId,
     insertDeckResult,
+    getDeckResults,
 } from "../controllers/deckController";
 import {
     deckCreationSchema,
@@ -31,5 +32,6 @@ router.post(
     schemaValidation(deckResultCreationSchema),
     insertDeckResult
 );
+router.get("/deck/result/:deckId", getDeckResults);
 
 export default router;

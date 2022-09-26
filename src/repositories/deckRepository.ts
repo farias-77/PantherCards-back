@@ -77,3 +77,20 @@ export async function insertDeckResult(
 
     return createdDeckResult;
 }
+
+export async function getDeckResults(deckId: number): Promise<DeckResults[]> {
+    return await prisma.deckResults.findMany({
+        where: { deckId },
+        include: {
+            user: { select: { username: true } },
+        },
+        orderBy: [
+            {
+                score: "desc",
+            },
+            {
+                time: "asc",
+            },
+        ],
+    });
+}

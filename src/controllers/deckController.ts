@@ -68,3 +68,12 @@ export async function insertDeckResult(req: Request, res: Response) {
 
     res.status(201).send(createdDeckResult);
 }
+
+export async function getDeckResults(req: Request, res: Response) {
+    const deckId: number = Number(req.params.deckId);
+
+    await deckServices.validateDeckExists(deckId);
+    const results = await deckServices.getDeckResults(deckId);
+
+    res.status(200).send(results);
+}
