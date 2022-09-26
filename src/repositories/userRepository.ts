@@ -21,3 +21,13 @@ export async function insertUser(user: TUser): Promise<Users> {
 export async function findById(userId: number): Promise<Users | null> {
     return await prisma.users.findFirst({ where: { id: userId } });
 }
+
+export async function getUsernameById(
+    userId: number
+): Promise<string | undefined> {
+    const user: Users | null = await prisma.users.findFirst({
+        where: { id: userId },
+    });
+
+    return user?.username;
+}

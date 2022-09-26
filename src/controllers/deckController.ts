@@ -48,9 +48,12 @@ export async function getDecksByUserId(req: Request, res: Response) {
     const userId: number = Number(req.params.userId);
 
     await userServices.validateUserExists(userId);
+    const username: string | undefined = await userServices.getUsernameById(
+        userId
+    );
     const decks: Decks[] = await deckServices.getDecksByUserId(userId);
 
-    res.status(200).send(decks);
+    res.status(200).send({ username, decks });
 }
 
 export async function insertDeckResult(req: Request, res: Response) {

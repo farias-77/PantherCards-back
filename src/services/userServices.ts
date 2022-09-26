@@ -13,3 +13,9 @@ export async function validateUserExists(userId: number) {
 
     return;
 }
+
+export async function getUsernameById(
+    userId: number
+): Promise<string | undefined> {
+    return await userRepositories.getUsernameById(userId);
+}
