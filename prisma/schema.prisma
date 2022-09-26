@@ -11,6 +11,7 @@ model Users {
   id          Int           @id @default(autoincrement())
   email       String        @unique
   password    String
+  username    String        @unique
   Decks       Decks[]
   DeckResults DeckResults[]
 
