@@ -6,16 +6,16 @@ export const signUpSchema = joi.object({
         .string()
         .email()
         .required()
-        .message("Por favor, insira um email válido."),
+        .message("Por favor, insira um email válido"),
     username: joi
         .string()
         .required()
-        .message("Por favor, insira um username válido."),
-    password: joi.string().required().message("Por favor, insira uma senha."),
+        .message("Por favor, insira um username válido"),
+    password: joi.string().required().message("Por favor, insira uma senha"),
     confirmPassword: joi
         .string()
         .required()
-        .message("Por favor, insira uma confirmação de senha."),
+        .message("Por favor, insira uma confirmação de senha"),
 });
 
 export const signInSchema = joi.object<TUser>({

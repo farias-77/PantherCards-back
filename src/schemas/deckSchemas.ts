@@ -5,7 +5,7 @@ export const deckCreationSchema = joi.object<TDeck>({
     name: joi
         .string()
         .required()
-        .message("Por favor, insira um nome para o deck."),
+        .message("Por favor, insira um nome para o deck"),
 });
 
 export const deckQuestionsCreationSchema = joi.object({
@@ -19,7 +19,7 @@ export const deckQuestionsCreationSchema = joi.object({
             })
         )
         .required()
-        .message("Você deve enviar no mínimo uma pergunta."),
+        .message("Você deve enviar no mínimo uma pergunta"),
 });
 
 export const deckResultCreationSchema = joi.object<TDeckResult>({

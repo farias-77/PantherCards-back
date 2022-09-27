@@ -11,7 +11,7 @@ export function validateConfirmPassword(
     if (password !== confirmPassword) {
         throw {
             type: "unauthorized",
-            message: "Password and confirmPassword must be equal!",
+            message: "A senha e a confirmação de senha devem ser iguais",
         };
     }
 
@@ -22,7 +22,10 @@ export async function validateNewEmail(email: string) {
     const user: Users | null = await findByEmail(email);
 
     if (user) {
-        throw { type: "conflict", message: "Email already in use!" };
+        throw {
+            type: "conflict",
+            message: "Esse email já está sendo utilizado",
+        };
     }
 
     return;
@@ -44,7 +47,7 @@ export async function validatePassword(userBody: TUser) {
         !userDatabase ||
         !(await bcrypt.compare(userBody.password, userDatabase.password))
     ) {
-        throw { type: "unauthorized", message: "Invalid credentials." };
+        throw { type: "unauthorized", message: "Credenciais inválidas" };
     }
 
     return;
