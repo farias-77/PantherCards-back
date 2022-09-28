@@ -5,17 +5,22 @@ export const signUpSchema = joi.object({
     email: joi
         .string()
         .email()
-        .required()
-        .message("Por favor, insira um email válido"),
+        .messages({ "string.empty": "Por favor, insira um email válido" })
+        .required(),
     username: joi
         .string()
-        .required()
-        .message("Por favor, insira um username válido"),
-    password: joi.string().required().message("Por favor, insira uma senha"),
+        .messages({ "string.empty": "Por favor, insira um username válido" })
+        .required(),
+    password: joi
+        .string()
+        .messages({ "string.empty": "Por favor, insira uma senha" })
+        .required(),
     confirmPassword: joi
         .string()
-        .required()
-        .message("Por favor, insira uma confirmação de senha"),
+        .messages({
+            "string.empty": "Por favor, insira uma confirmação de senha",
+        })
+        .required(),
 });
 
 export const signInSchema = joi.object<TUser>({

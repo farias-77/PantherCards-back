@@ -4,8 +4,8 @@ import { TDeck, TDeckResult } from "../types/deckTypes";
 export const deckCreationSchema = joi.object<TDeck>({
     name: joi
         .string()
-        .required()
-        .message("Por favor, insira um nome para o deck"),
+        .messages({ "string.empty": "Por favor, insira um nome para o deck" })
+        .required(),
 });
 
 export const deckQuestionsCreationSchema = joi.object({
@@ -18,8 +18,8 @@ export const deckQuestionsCreationSchema = joi.object({
                 answer: joi.string().required(),
             })
         )
-        .required()
-        .message("Você deve enviar no mínimo uma pergunta"),
+        .messages({ "array.min": "Você deve enviar no mínimo uma pergunta" })
+        .required(),
 });
 
 export const deckResultCreationSchema = joi.object<TDeckResult>({
