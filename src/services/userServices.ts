@@ -1,5 +1,5 @@
 import * as userRepositories from "../repositories/userRepository";
-import { TUser } from "../types/userTypes";
+import { TUser, TUsernameId } from "../types/userTypes";
 import { Users } from "@prisma/client";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
@@ -81,14 +81,20 @@ export async function getUsernameById(
     return await userRepositories.getUsernameById(userId);
 }
 
-export async function getUsersByInput(input: string): Promise<Users[]> {
+export async function getUsersByInput(input: string): Promise<TUsernameId[]> {
     const users: Users[] = await userRepositories.getAllUsers();
 
     const usersByInput: Users[] = users.filter((user: Users) =>
         user.username.startsWith(input)
     );
 
-    return usersByInput;
+    const usersByInputNoPassword: TUsernameId[] = usersByInput.map(
+        (user: Users) => {
+            return { id: user.id, username: user.username };
+        }
+    );
+
+    return usersByInputNoPassword;
 }
 
 async function encryptsPassword(password: string): Promise<string> {
