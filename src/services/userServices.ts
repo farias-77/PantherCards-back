@@ -40,7 +40,7 @@ export async function insertUser(user: TUser): Promise<Users> {
     return await userRepositories.insertUser(encryptedUser);
 }
 
-export async function validatePassword(userBody: TUser) {
+export async function validatePassword(userBody: TUser): Promise<Users> {
     const userDatabase: Users | null = await findByEmail(userBody.email);
 
     if (
@@ -50,7 +50,7 @@ export async function validatePassword(userBody: TUser) {
         throw { type: "unauthorized", message: "Credenciais inválidas" };
     }
 
-    return;
+    return userDatabase;
 }
 
 export async function generateToken(email: string): Promise<string> {

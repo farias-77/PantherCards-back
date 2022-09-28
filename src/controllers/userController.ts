@@ -21,10 +21,10 @@ export async function signUp(req: Request, res: Response) {
 export async function signIn(req: Request, res: Response) {
     const user: TUser = req.body;
 
-    await userServices.validatePassword(user);
+    const { id } = await userServices.validatePassword(user);
     const token: string = await userServices.generateToken(user.email);
 
-    res.status(200).send({ token });
+    res.status(200).send({ id, token });
 }
 
 export async function getUsers(req: Request, res: Response) {
