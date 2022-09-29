@@ -28,9 +28,7 @@ export async function insertQuestions(req: Request, res: Response) {
     await deckServices.validateDeckExists(deckId);
     await deckServices.validateDeckBelongsToUser(deckId, userId);
     await deckServices.insertQuestions(questions, deckId);
-    const deck: TDeckWithQuestions = await deckServices.getDeckWithQuestions(
-        deckId
-    );
+    const deck = await deckServices.getDeckWithQuestions(deckId);
 
     res.status(201).send(deck);
 }

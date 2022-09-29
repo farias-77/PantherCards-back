@@ -28,9 +28,10 @@ export async function insertDeckQuestion(
     return createdQuestion;
 }
 
-export async function getDeckById(id: number): Promise<Decks | null> {
-    const deck: Decks | null = await prisma.decks.findFirst({
+export async function getDeckById(id: number) {
+    const deck = await prisma.decks.findFirst({
         where: { id },
+        include: { user: { select: { username: true } } },
     });
 
     return deck;

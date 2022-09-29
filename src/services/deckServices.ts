@@ -5,6 +5,7 @@ import {
     TDeckQuestion,
     TDeckResult,
     TDeckWithQuestions,
+    TDeckWUsername,
 } from "../types/deckTypes";
 
 export async function insertDeck(deck: TDeck, userId: number) {
@@ -67,16 +68,12 @@ export async function insertQuestions(
     return;
 }
 
-export async function getDeckWithQuestions(
-    deckId: number
-): Promise<TDeckWithQuestions> {
-    const deck: Decks | null = await getDeckById(deckId);
+export async function getDeckWithQuestions(deckId: number) {
+    const deck = await getDeckById(deckId);
     const deckQuestions: DeckQuestions[] = await getDeckQuestions(deckId);
 
-    const deckWQuestions: TDeckWithQuestions = {
-        id: deck?.id,
-        name: deck?.name,
-        userId: deck?.userId,
+    const deckWQuestions = {
+        ...deck,
         questions: deckQuestions,
     };
 
