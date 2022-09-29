@@ -35,8 +35,7 @@ export async function validateDeckBelongsToUser(
     if (deck?.userId !== userId) {
         throw {
             type: "unauthorized",
-            message:
-                "Você não pode criar uma pergunta em um deck que não é seu!",
+            message: "Você não alterar um deck que não é seu!",
         };
     }
 
