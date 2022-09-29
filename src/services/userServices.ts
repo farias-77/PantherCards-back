@@ -31,6 +31,19 @@ export async function validateNewEmail(email: string) {
     return;
 }
 
+export async function validateNewUsername(username: string) {
+    const user: Users | null = await userRepositories.findByUsername(username);
+
+    if (user) {
+        throw {
+            type: "conflict",
+            message: "Esse username já está sendo utilizado",
+        };
+    }
+
+    return;
+}
+
 export async function insertUser(user: TUser): Promise<Users> {
     const encryptedUser: TUser = {
         ...user,
