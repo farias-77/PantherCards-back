@@ -16,7 +16,11 @@ export async function signUp(req: Request, res: Response) {
     await userServices.validateNewUsername(user.username);
     const createdUser = await userServices.insertUser(user);
 
-    res.status(201).send(createdUser);
+    res.status(201).send({
+        id: createdUser.id,
+        email: createdUser.email,
+        username: createdUser.username,
+    });
 }
 
 export async function signIn(req: Request, res: Response) {
