@@ -96,3 +96,11 @@ export async function getDeckResults(deckId: number): Promise<DeckResults[]> {
         take: 10,
     });
 }
+
+export async function deleteQuestionsByDeckId(deckId: number) {
+    return await prisma.deckQuestions.deleteMany({ where: { deckId } });
+}
+
+export async function deleteDeckById(deckId: number) {
+    return await prisma.decks.delete({ where: { id: deckId } });
+}

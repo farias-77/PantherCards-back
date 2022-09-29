@@ -7,6 +7,7 @@ import {
     getDecksByUserId,
     insertDeckResult,
     getDeckResults,
+    deleteDeckById,
 } from "../controllers/deckController";
 import {
     deckCreationSchema,
@@ -33,5 +34,7 @@ router.post(
     insertDeckResult
 );
 router.get("/deck/result/:deckId", getDeckResults);
+
+router.delete("/deck/:deckId", deleteDeckById);
 
 export default router;

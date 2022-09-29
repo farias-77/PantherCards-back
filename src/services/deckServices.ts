@@ -96,6 +96,13 @@ export async function getDeckResults(deckId: number) {
     return await deckRepositories.getDeckResults(deckId);
 }
 
+export async function deleteDeckById(deckId: number) {
+    await deckRepositories.deleteQuestionsByDeckId(deckId);
+    await deckRepositories.deleteDeckById(deckId);
+
+    return;
+}
+
 async function insertQuestion(
     question: TDeckQuestion,
     deckId: number

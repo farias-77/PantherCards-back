@@ -78,3 +78,14 @@ export async function getDeckResults(req: Request, res: Response) {
 
     res.status(200).send(results);
 }
+
+export async function deleteDeckById(req: Request, res: Response) {
+    const userId: number = Number(res.locals.retornoJwtVerify.id);
+    const deckId: number = Number(req.params.deckId);
+
+    await deckServices.validateDeckExists(deckId);
+    await deckServices.validateDeckBelongsToUser(deckId, userId);
+    await deckServices.deleteDeckById(deckId);
+
+    res.sendStatus(200);
+}
