@@ -97,9 +97,11 @@ export async function getUsernameById(
 export async function getUsersByInput(input: string): Promise<TUsernameId[]> {
     const users: Users[] = await userRepositories.getAllUsers();
 
-    const usersByInput: Users[] = users.filter((user: Users) =>
-        user.username.startsWith(input)
-    );
+    const usersByInput: Users[] = users.filter((user: Users) => {
+        const lowerCaseUser = user.username.toLowerCase();
+
+        return lowerCaseUser.startsWith(input);
+    });
 
     const usersByInputNoPassword: TUsernameId[] = usersByInput.map(
         (user: Users) => {

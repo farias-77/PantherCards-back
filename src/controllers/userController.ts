@@ -33,7 +33,7 @@ export async function signIn(req: Request, res: Response) {
 }
 
 export async function getUsers(req: Request, res: Response) {
-    const username: string = req.params.username;
+    const username: string = req.params.username.toLowerCase();
 
     const usersByInput: TUsernameId[] = await userServices.getUsersByInput(
         username
