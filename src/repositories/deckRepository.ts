@@ -28,6 +28,17 @@ export async function insertDeckQuestion(
     return createdQuestion;
 }
 
+export async function insertDeckQuestionsArray(
+    deckQuestions: TDeckQuestion[],
+    deckId: number
+) {
+    const questions = deckQuestions.map((question: TDeckQuestion) => {
+        return { ...question, deckId };
+    });
+
+    return await prisma.deckQuestions.createMany({ data: questions });
+}
+
 export async function getDeckById(id: number) {
     const deck = await prisma.decks.findFirst({
         where: { id },

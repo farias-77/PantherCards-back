@@ -59,12 +59,7 @@ export async function insertQuestions(
     questions: TDeckQuestion[],
     deckId: number
 ) {
-    questions.forEach(
-        async (question: TDeckQuestion) =>
-            await insertQuestion(question, deckId)
-    );
-
-    return;
+    return deckRepositories.insertDeckQuestionsArray(questions, deckId);
 }
 
 export async function getDeckWithQuestions(deckId: number) {
@@ -100,16 +95,6 @@ export async function deleteDeckById(deckId: number) {
     await deckRepositories.deleteDeckById(deckId);
 
     return;
-}
-
-async function insertQuestion(
-    question: TDeckQuestion,
-    deckId: number
-): Promise<DeckQuestions> {
-    const createdQuestion: DeckQuestions =
-        await deckRepositories.insertDeckQuestion(question, deckId);
-
-    return createdQuestion;
 }
 
 async function getDeckById(deckId: number): Promise<Decks | null> {
