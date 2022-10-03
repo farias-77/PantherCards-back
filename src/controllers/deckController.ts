@@ -69,6 +69,7 @@ export async function insertDeckResult(req: Request, res: Response) {
 
     await deckServices.validateDeckExists(deckId);
     await userServices.validateUserExists(userId);
+    await deckServices.validatePrivateDeck(deckId, userId);
     const createdDeckResult: DeckResults = await deckServices.insertDeckResult(
         deckResult,
         deckId,
@@ -79,9 +80,11 @@ export async function insertDeckResult(req: Request, res: Response) {
 }
 
 export async function getDeckResults(req: Request, res: Response) {
+    const userId: number = Number(res.locals.retornoJwtVerify.id);
     const deckId: number = Number(req.params.deckId);
 
     await deckServices.validateDeckExists(deckId);
+    await deckServices.validatePrivateDeck(deckId, userId);
     const results = await deckServices.getDeckResults(deckId);
 
     res.status(200).send(results);
