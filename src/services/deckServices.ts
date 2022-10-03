@@ -55,6 +55,19 @@ export async function validateDeckExists(deckId: number) {
     return;
 }
 
+export async function validatePrivateDeck(deckId: number, userId: number) {
+    const deck: Decks | null = await getDeckById(deckId);
+
+    if (deck?.isPrivate && deck.userId !== userId) {
+        throw {
+            type: "unauthorized",
+            message: "Você não tem permissão para esse deck!",
+        };
+    }
+
+    return;
+}
+
 export async function insertQuestions(
     questions: TDeckQuestion[],
     deckId: number

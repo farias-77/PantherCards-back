@@ -34,9 +34,11 @@ export async function insertQuestions(req: Request, res: Response) {
 }
 
 export async function getDeckById(req: Request, res: Response) {
+    const userId: number = Number(res.locals.retornoJwtVerify.id);
     const deckId: number = Number(req.params.deckId);
 
     await deckServices.validateDeckExists(deckId);
+    await deckServices.validatePrivateDeck(deckId, userId);
     const deck = await deckServices.getDeckWithQuestions(deckId);
 
     res.status(200).send(deck);
