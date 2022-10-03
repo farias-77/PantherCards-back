@@ -6,7 +6,6 @@ export default function errorHandlingMiddleware(
     res: Response,
     next: NextFunction
 ) {
-    console.log(error);
     if (error.type === "conflict") return res.status(409).send(error.message);
 
     if (error.type === "unauthorized")

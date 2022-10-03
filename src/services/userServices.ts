@@ -15,7 +15,7 @@ export function validateConfirmPassword(
         };
     }
 
-    return;
+    return true;
 }
 
 export async function validateNewEmail(email: string) {
@@ -28,7 +28,7 @@ export async function validateNewEmail(email: string) {
         };
     }
 
-    return;
+    return true;
 }
 
 export async function validateNewUsername(username: string) {
@@ -41,7 +41,7 @@ export async function validateNewUsername(username: string) {
         };
     }
 
-    return;
+    return true;
 }
 
 export async function insertUser(user: TUser): Promise<Users> {
@@ -85,7 +85,7 @@ export async function validateUserExists(userId: number) {
         };
     }
 
-    return;
+    return true;
 }
 
 export async function getUsernameById(
@@ -119,6 +119,6 @@ async function encryptsPassword(password: string): Promise<string> {
     return encryptedPassword;
 }
 
-async function findByEmail(email: string): Promise<Users | null> {
+export async function findByEmail(email: string): Promise<Users | null> {
     return await userRepositories.findByEmail(email);
 }
