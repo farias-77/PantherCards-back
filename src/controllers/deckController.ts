@@ -45,15 +45,21 @@ export async function getDeckById(req: Request, res: Response) {
 }
 
 export async function getDecksByUserId(req: Request, res: Response) {
-    const userId: number = Number(req.params.userId);
+    const userIdDecks: number = Number(req.params.userId);
+    const userIdRequest: number = Number(res.locals.retornoJwtVerify.id);
 
-    await userServices.validateUserExists(userId);
+    await userServices.validateUserExists(userIdDecks);
     const username: string | undefined = await userServices.getUsernameById(
-        userId
+        userIdDecks
     );
-    const decks: Decks[] = await deckServices.getDecksByUserId(userId);
+    const decks: Decks[] = await deckServices.getDecksByUserId(userIdDecks);
 
-    res.status(200).send({ username, decks });
+    if (userIdDecks === userIdRequest) {
+        res.status(200).send({ username, decks });
+    }
+
+    const publicDecks: Decks[] = deckServices.filterPrivateDecks(decks);
+    res.status(200).send({ username, decks: publicDecks });
 }
 
 export async function insertDeckResult(req: Request, res: Response) {

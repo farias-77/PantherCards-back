@@ -91,6 +91,10 @@ export async function getDecksByUserId(userId: number) {
     return await deckRepositories.getDecksByUserId(userId);
 }
 
+export function filterPrivateDecks(decks: Decks[]) {
+    return decks.filter((deck: Decks) => !deck.isPrivate);
+}
+
 export async function insertDeckResult(
     deckResult: TDeckResult,
     deckId: number,
