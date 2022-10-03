@@ -12,9 +12,6 @@ app.use(json());
 dotenv.config();
 
 app.use(router);
-app.use(errorHandler)
+app.use(errorHandler);
 
-const PORT: number = Number(process.env.PORT);
-app.listen(PORT, () => {
-    console.log(`Server is running on PORT ${PORT}`);
-})
+export default app;
