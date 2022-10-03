@@ -6,6 +6,7 @@ export const deckCreationSchema = joi.object<TDeck>({
         .string()
         .messages({ "string.empty": "Por favor, insira um nome para o deck" })
         .required(),
+    isPrivate: joi.boolean().required(),
 });
 
 export const deckQuestionsCreationSchema = joi.object({

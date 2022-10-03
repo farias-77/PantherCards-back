@@ -7,6 +7,7 @@ export type TDeckQuestion = {
 
 export type TDeck = {
     name: string;
+    isPrivate: boolean;
 };
 
 export type TDeckWithQuestions = {

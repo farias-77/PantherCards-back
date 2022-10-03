@@ -21,6 +21,7 @@ model Users {
 model Decks {
   id            Int             @id @default(autoincrement())
   name          String
+  isPrivate     Boolean         @default(false)
   userId        Int
   user          Users           @relation(fields: [userId], references: [id])
   DeckQuestions DeckQuestions[]

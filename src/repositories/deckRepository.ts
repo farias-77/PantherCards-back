@@ -7,6 +7,7 @@ export async function insertDeck(deck: TDeck, userId: number): Promise<Decks> {
         data: {
             name: deck.name,
             userId,
+            isPrivate: deck.isPrivate,
         },
     });
 
