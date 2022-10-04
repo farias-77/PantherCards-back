@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">49.12% </span>
+                <span class="strong">64.91% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>28/57</span>
+                <span class='fraction'>37/57</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">42.85% </span>
+                <span class="strong">57.14% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/7</span>
+                <span class='fraction'>4/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">49.12% </span>
+                <span class="strong">64.91% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>28/57</span>
+                <span class='fraction'>37/57</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -212,21 +212,21 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
@@ -313,22 +313,22 @@ export async function getDeckById(req: Request, res: Response) {
     res.status(200).send(deck);
 }
 &nbsp;
-export async function <span class="fstat-no" title="function not covered" >getDecksByUserId(</span>req: Request, res: Response) {
-    const userIdDecks: number = <span class="cstat-no" title="statement not covered" >Number(req.params.userId);</span>
-    const userIdRequest: number = <span class="cstat-no" title="statement not covered" >Number(res.locals.retornoJwtVerify.id);</span>
+export async function getDecksByUserId(req: Request, res: Response) {
+    const userIdDecks: number = Number(req.params.userId);
+    const userIdRequest: number = Number(res.locals.retornoJwtVerify.id);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    await userServices.validateUserExists(userIdDecks);</span>
-    const username: string | undefined = <span class="cstat-no" title="statement not covered" >await userServices.getUsernameById(</span>
+    await userServices.validateUserExists(userIdDecks);
+    const username: string | undefined = await userServices.getUsernameById(
         userIdDecks
     );
-    const decks: Decks[] = <span class="cstat-no" title="statement not covered" >await deckServices.getDecksByUserId(userIdDecks);</span>
+    const decks: Decks[] = await deckServices.getDecksByUserId(userIdDecks);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (userIdDecks === userIdRequest) {</span>
-<span class="cstat-no" title="statement not covered" >        res.status(200).send({ username, decks });</span>
+    if (userIdDecks === userIdRequest) {
+        res.status(200).send({ username, decks });
     }
 &nbsp;
-    const publicDecks: Decks[] = <span class="cstat-no" title="statement not covered" >deckServices.filterPrivateDecks(decks);</span>
-<span class="cstat-no" title="statement not covered" >    res.status(200).send({ username, decks: publicDecks });</span>
+    const publicDecks: Decks[] = deckServices.filterPrivateDecks(decks);
+    res.status(200).send({ username, decks: publicDecks });
 }
 &nbsp;
 export async function <span class="fstat-no" title="function not covered" >insertDeckResult(</span>req: Request, res: Response) {
@@ -376,7 +376,7 @@ export async function <span class="fstat-no" title="function not covered" >delet
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-10-04T16:30:21.028Z
+                at 2022-10-04T16:34:59.543Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

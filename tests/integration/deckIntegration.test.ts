@@ -105,3 +105,36 @@ describe("Testa /GET em /deck/:deckId", () => {
         expect(result.status).toBe(404);
     });
 });
+
+describe("Testa /GET em /deck/user/:userId", () => {
+    it("Testa com id válido -> deve retornar 200 e um array de decks", async () => {
+        const deck = deckFactory();
+        const user = userFactory();
+
+        const { body: signUp } = await server.post("/sign-up").send(user);
+        const token = await tokenFactory(signUp.id);
+
+        const result = await server
+            .get(`/deck/user/${signUp.id}`)
+            .set("Authorization", `Bearer ${token}`)
+            .send();
+
+        expect(result.status).toBe(200);
+        expect(result.body).toBeInstanceOf(Object);
+    });
+
+    it("Testa com id inválido -> deve retornar 404", async () => {
+        const deck = deckFactory();
+        const user = userFactory();
+
+        const { body: signUp } = await server.post("/sign-up").send(user);
+        const token = await tokenFactory(signUp.id);
+
+        const result = await server
+            .get(`/deck/user/${signUp.id + 1}`)
+            .set("Authorization", `Bearer ${token}`)
+            .send();
+
+        expect(result.status).toBe(404);
+    });
+});
