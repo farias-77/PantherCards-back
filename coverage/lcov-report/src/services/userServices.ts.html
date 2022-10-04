@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">76% </span>
+                <span class="strong">84% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>38/50</span>
+                <span class='fraction'>42/50</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">61.53% </span>
+                <span class="strong">69.23% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>8/13</span>
+                <span class='fraction'>9/13</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">76% </span>
+                <span class="strong">84% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>38/50</span>
+                <span class='fraction'>42/50</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -284,21 +284,21 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -407,22 +407,22 @@ export async function <span class="fstat-no" title="function not covered" >getUs
 <span class="cstat-no" title="statement not covered" >    return await userRepositories.getUsernameById(userId);</span>
 }
 &nbsp;
-export async function <span class="fstat-no" title="function not covered" >getUsersByInput(</span>input: string): Promise&lt;TUsernameId[]&gt; {
-    const users: Users[] = <span class="cstat-no" title="statement not covered" >await userRepositories.getAllUsers();</span>
+export async function getUsersByInput(input: string): Promise&lt;TUsernameId[]&gt; {
+    const users: Users[] = await userRepositories.getAllUsers();
 &nbsp;
-    const usersByInput: Users[] = <span class="cstat-no" title="statement not covered" >users.filter(<span class="fstat-no" title="function not covered" >(u</span>ser: Users) =&gt; {</span>
+    const usersByInput: Users[] = users.filter(<span class="fstat-no" title="function not covered" >(u</span>ser: Users) =&gt; {
         const lowerCaseUser = <span class="cstat-no" title="statement not covered" >user.username.toLowerCase();</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >        return lowerCaseUser.startsWith(input);</span>
     });
 &nbsp;
-    const usersByInputNoPassword: TUsernameId[] = <span class="cstat-no" title="statement not covered" >usersByInput.map(</span>
+    const usersByInputNoPassword: TUsernameId[] = usersByInput.map(
 <span class="fstat-no" title="function not covered" >        (u</span>ser: Users) =&gt; {
 <span class="cstat-no" title="statement not covered" >            return { id: user.id, username: user.username };</span>
         }
     );
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return usersByInputNoPassword;</span>
+    return usersByInputNoPassword;
 }
 &nbsp;
 async function encryptsPassword(password: string): Promise&lt;string&gt; {
@@ -442,7 +442,7 @@ export async function findByEmail(email: string): Promise&lt;Users | null&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-10-04T11:15:07.486Z
+                at 2022-10-04T11:24:42.972Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

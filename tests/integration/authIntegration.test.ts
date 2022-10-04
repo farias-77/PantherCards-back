@@ -130,3 +130,14 @@ describe("Testa SignIn", () => {
         expect(result.status).toBe(401);
     });
 });
+
+describe("Testa GetUsersByInput", () => {
+    it("Testa com input", async () => {
+        const username = faker.internet.userName();
+
+        const result = await server.get(`/user/${username}`).send();
+
+        expect(result.status).toBe(200);
+        expect(result.body).toBeInstanceOf(Array);
+    });
+});

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1664882107507" clover="3.2.0">
-  <project timestamp="1664882107507" name="All files">
-    <metrics statements="293" coveredstatements="163" conditionals="41" coveredconditionals="9" methods="60" coveredmethods="16" elements="394" coveredelements="188" complexity="0" loc="293" ncloc="293" packages="8" files="16" classes="16"/>
+<coverage generated="1664882682992" clover="3.2.0">
+  <project timestamp="1664882682992" name="All files">
+    <metrics statements="293" coveredstatements="171" conditionals="41" coveredconditionals="9" methods="60" coveredmethods="19" elements="394" coveredelements="199" complexity="0" loc="293" ncloc="293" packages="8" files="16" classes="16"/>
     <package name="src">
       <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="app.ts" path="/home/gabrielfarias/Documents/PantherCards/PantherCards - back/src/app.ts">
@@ -31,7 +31,7 @@
       </file>
     </package>
     <package name="src.controllers">
-      <metrics statements="75" coveredstatements="24" conditionals="1" coveredconditionals="0" methods="10" coveredmethods="2"/>
+      <metrics statements="75" coveredstatements="27" conditionals="1" coveredconditionals="0" methods="10" coveredmethods="3"/>
       <file name="deckController.ts" path="/home/gabrielfarias/Documents/PantherCards/PantherCards - back/src/controllers/deckController.ts">
         <metrics statements="57" coveredstatements="9" conditionals="1" coveredconditionals="0" methods="7" coveredmethods="0"/>
         <line num="9" count="1" type="stmt"/>
@@ -93,7 +93,7 @@
         <line num="101" count="0" type="stmt"/>
       </file>
       <file name="userController.ts" path="/home/gabrielfarias/Documents/PantherCards/PantherCards - back/src/controllers/userController.ts">
-        <metrics statements="18" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+        <metrics statements="18" coveredstatements="18" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
         <line num="4" count="1" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
         <line num="7" count="7" type="stmt"/>
@@ -109,9 +109,9 @@
         <line num="30" count="1" type="stmt"/>
         <line num="32" count="1" type="stmt"/>
         <line num="35" count="1" type="stmt"/>
-        <line num="36" count="0" type="stmt"/>
-        <line num="38" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.middlewares">
@@ -151,7 +151,7 @@
       </file>
     </package>
     <package name="src.repositories">
-      <metrics statements="46" coveredstatements="23" conditionals="4" coveredconditionals="0" methods="18" coveredmethods="3"/>
+      <metrics statements="46" coveredstatements="24" conditionals="4" coveredconditionals="0" methods="18" coveredmethods="4"/>
       <file name="deckRepository.ts" path="/home/gabrielfarias/Documents/PantherCards/PantherCards - back/src/repositories/deckRepository.ts">
         <metrics statements="31" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="12" coveredmethods="0"/>
         <line num="2" count="1" type="stmt"/>
@@ -187,7 +187,7 @@
         <line num="117" count="0" type="stmt"/>
       </file>
       <file name="userRepository.ts" path="/home/gabrielfarias/Documents/PantherCards/PantherCards - back/src/repositories/userRepository.ts">
-        <metrics statements="15" coveredstatements="11" conditionals="4" coveredconditionals="0" methods="6" coveredmethods="3"/>
+        <metrics statements="15" coveredstatements="12" conditionals="4" coveredconditionals="0" methods="6" coveredmethods="4"/>
         <line num="1" count="2" type="stmt"/>
         <line num="5" count="2" type="stmt"/>
         <line num="6" count="9" type="stmt"/>
@@ -202,7 +202,7 @@
         <line num="36" count="0" type="stmt"/>
         <line num="40" count="0" type="cond" truecount="0" falsecount="4"/>
         <line num="43" count="2" type="stmt"/>
-        <line num="44" count="0" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.routers">
@@ -265,7 +265,7 @@
       </file>
     </package>
     <package name="src.services">
-      <metrics statements="94" coveredstatements="51" conditionals="23" coveredconditionals="7" methods="28" coveredmethods="8"/>
+      <metrics statements="94" coveredstatements="55" conditionals="23" coveredconditionals="7" methods="28" coveredmethods="9"/>
       <file name="deckServices.ts" path="/home/gabrielfarias/Documents/PantherCards/PantherCards - back/src/services/deckServices.ts">
         <metrics statements="44" coveredstatements="13" conditionals="14" coveredconditionals="0" methods="15" coveredmethods="0"/>
         <line num="2" count="1" type="stmt"/>
@@ -314,7 +314,7 @@
         <line num="122" count="0" type="stmt"/>
       </file>
       <file name="userServices.ts" path="/home/gabrielfarias/Documents/PantherCards/PantherCards - back/src/services/userServices.ts">
-        <metrics statements="50" coveredstatements="38" conditionals="9" coveredconditionals="7" methods="13" coveredmethods="8"/>
+        <metrics statements="50" coveredstatements="42" conditionals="9" coveredconditionals="7" methods="13" coveredmethods="9"/>
         <line num="1" count="2" type="stmt"/>
         <line num="4" count="2" type="stmt"/>
         <line num="5" count="2" type="stmt"/>
@@ -353,13 +353,13 @@
         <line num="91" count="2" type="stmt"/>
         <line num="94" count="0" type="stmt"/>
         <line num="97" count="2" type="stmt"/>
-        <line num="98" count="0" type="stmt"/>
-        <line num="100" count="0" type="stmt"/>
+        <line num="98" count="1" type="stmt"/>
+        <line num="100" count="1" type="stmt"/>
         <line num="101" count="0" type="stmt"/>
         <line num="103" count="0" type="stmt"/>
-        <line num="106" count="0" type="stmt"/>
+        <line num="106" count="1" type="stmt"/>
         <line num="108" count="0" type="stmt"/>
-        <line num="112" count="0" type="stmt"/>
+        <line num="112" count="1" type="stmt"/>
         <line num="116" count="5" type="stmt"/>
         <line num="117" count="5" type="stmt"/>
         <line num="119" count="5" type="stmt"/>
