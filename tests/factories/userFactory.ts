@@ -1,4 +1,5 @@
 import { faker } from "@faker-js/faker";
+import jwt from "jsonwebtoken";
 
 export function userFactory() {
     const password = faker.internet.password();
@@ -8,4 +9,11 @@ export function userFactory() {
         password,
         confirmPassword: password,
     };
+}
+
+export function tokenFactory(id: number) {
+    const secretKey: string = String(process.env.JWT_SECRET);
+    const token: string = jwt.sign({ id }, secretKey);
+
+    return token;
 }

@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">38.7% </span>
+                <span class="strong">51.61% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>12/31</span>
+                <span class='fraction'>16/31</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">16.66% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/12</span>
+                <span class='fraction'>2/12</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">38.7% </span>
+                <span class="strong">51.61% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>12/31</span>
+                <span class='fraction'>16/31</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -186,7 +186,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -194,7 +194,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
@@ -250,11 +250,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
@@ -303,8 +303,8 @@
 import { prisma } from "../config/database";
 import { TDeck, TDeckQuestion, TDeckResult } from "../types/deckTypes";
 &nbsp;
-export async function <span class="fstat-no" title="function not covered" >insertDeck(</span>deck: TDeck, userId: number): Promise&lt;Decks&gt; {
-    const createdDeck: Decks = <span class="cstat-no" title="statement not covered" >await prisma.decks.create({</span>
+export async function insertDeck(deck: TDeck, userId: number): Promise&lt;Decks&gt; {
+    const createdDeck: Decks = await prisma.decks.create({
         data: {
             name: deck.name,
             userId,
@@ -312,7 +312,7 @@ export async function <span class="fstat-no" title="function not covered" >inser
         },
     });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return createdDeck;</span>
+    return createdDeck;
 }
 &nbsp;
 export async function <span class="fstat-no" title="function not covered" >insertDeckQuestion(</span>
@@ -364,15 +364,15 @@ export async function <span class="fstat-no" title="function not covered" >getDe
 <span class="cstat-no" title="statement not covered" >    return deckQuestions;</span>
 }
 &nbsp;
-export async function <span class="fstat-no" title="function not covered" >getDeckByNameAndUserId(</span>
+export async function getDeckByNameAndUserId(
     deck: TDeck,
     userId: number
 ): Promise&lt;Decks | null&gt; {
-    const deckByName: Decks | null = <span class="cstat-no" title="statement not covered" >await prisma.decks.findFirst({</span>
+    const deckByName: Decks | null = await prisma.decks.findFirst({
         where: { name: deck.name, userId },
     });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return deckByName;</span>
+    return deckByName;
 }
 &nbsp;
 export async function <span class="fstat-no" title="function not covered" >insertDeckResult(</span>
@@ -424,7 +424,7 @@ export async function <span class="fstat-no" title="function not covered" >delet
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-10-04T11:42:08.582Z
+                at 2022-10-04T11:59:46.415Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

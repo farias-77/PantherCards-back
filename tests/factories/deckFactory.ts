@@ -6,3 +6,20 @@ export function deckFactory() {
         isPrivate: faker.datatype.boolean(),
     };
 }
+
+export function questionsFactory() {
+    return [
+        {
+            question: faker.lorem.words(5),
+            answer: faker.lorem.words(3),
+        },
+        {
+            question: faker.lorem.words(5),
+            answer: faker.lorem.words(3),
+        },
+        {
+            question: faker.lorem.words(5),
+            answer: faker.lorem.words(3),
+        },
+    ];
+}
