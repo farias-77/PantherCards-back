@@ -166,3 +166,27 @@ describe("Testa /POST em /deck/result/:deckId", () => {
         expect(result.body).toBeInstanceOf(Object);
     });
 });
+
+describe("Testa /GET em /deck/result/:deckId", () => {
+    it("Testa com body válido", async () => {
+        const deck = deckFactory();
+        const user = userFactory();
+        const deckResult = resultFactory();
+
+        const { body: signUp } = await server.post("/sign-up").send(user);
+        const token = await tokenFactory(signUp.id);
+
+        const { body: createdDeck } = await server
+            .post("/deck")
+            .set("Authorization", `Bearer ${token}`)
+            .send(deck);
+
+        const result = await server
+            .get(`/deck/result/${createdDeck.id}`)
+            .set("Authorization", `Bearer ${token}`)
+            .send(deckResult);
+
+        expect(result.status).toBe(200);
+        expect(result.body).toBeInstanceOf(Array);
+    });
+});

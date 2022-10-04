@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">78.94% </span>
+                <span class="strong">89.47% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>45/57</span>
+                <span class='fraction'>51/57</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">71.42% </span>
+                <span class="strong">85.71% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>5/7</span>
+                <span class='fraction'>6/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">78.94% </span>
+                <span class="strong">89.47% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>45/57</span>
+                <span class='fraction'>51/57</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -178,13 +178,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
@@ -247,14 +247,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
@@ -348,15 +348,15 @@ export async function insertDeckResult(req: Request, res: Response) {
     res.status(201).send(createdDeckResult);
 }
 &nbsp;
-export async function <span class="fstat-no" title="function not covered" >getDeckResults(</span>req: Request, res: Response) {
-    const userId: number = <span class="cstat-no" title="statement not covered" >Number(res.locals.retornoJwtVerify.id);</span>
-    const deckId: number = <span class="cstat-no" title="statement not covered" >Number(req.params.deckId);</span>
+export async function getDeckResults(req: Request, res: Response) {
+    const userId: number = Number(res.locals.retornoJwtVerify.id);
+    const deckId: number = Number(req.params.deckId);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    await deckServices.validateDeckExists(deckId);</span>
-<span class="cstat-no" title="statement not covered" >    await deckServices.validatePrivateDeck(deckId, userId);</span>
-    const results = <span class="cstat-no" title="statement not covered" >await deckServices.getDeckResults(deckId);</span>
+    await deckServices.validateDeckExists(deckId);
+    await deckServices.validatePrivateDeck(deckId, userId);
+    const results = await deckServices.getDeckResults(deckId);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    res.status(200).send(results);</span>
+    res.status(200).send(results);
 }
 &nbsp;
 export async function <span class="fstat-no" title="function not covered" >deleteDeckById(</span>req: Request, res: Response) {
@@ -376,7 +376,7 @@ export async function <span class="fstat-no" title="function not covered" >delet
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-10-04T16:40:37.164Z
+                at 2022-10-04T16:41:57.334Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
