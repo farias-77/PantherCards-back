@@ -1,5 +1,7 @@
+import { faker } from "@faker-js/faker";
 import supertest from "supertest";
 import app from "../../src/app";
+
 import { deckFactory, questionsFactory } from "../factories/deckFactory";
 import { tokenFactory, userFactory } from "../factories/userFactory";
 
@@ -64,5 +66,42 @@ describe("Testa /POST em /deck/questions/:deckId", () => {
 
         expect(result.status).toBe(201);
         expect(result.body).toBeInstanceOf(Object);
+    });
+});
+
+describe("Testa /GET em /deck/:deckId", () => {
+    it("Testa com id válido -> deve retornar 200 e o deck", async () => {
+        const deck = deckFactory();
+        const user = userFactory();
+
+        const { body: signUp } = await server.post("/sign-up").send(user);
+        const token = await tokenFactory(signUp.id);
+
+        const { body: createdDeck } = await server
+            .post("/deck")
+            .set("Authorization", `Bearer ${token}`)
+            .send(deck);
+
+        const result = await server
+            .get(`/deck/${createdDeck.id}`)
+            .set("Authorization", `Bearer ${token}`)
+            .send();
+
+        expect(result.status).toBe(200);
+        expect(result.body).toBeInstanceOf(Object);
+    });
+
+    it("Testa com id inválido -> deve retornar 404", async () => {
+        const user = userFactory();
+
+        const { body: signUp } = await server.post("/sign-up").send(user);
+        const token = await tokenFactory(signUp.id);
+
+        const result = await server
+            .get(`/deck/${faker.datatype.number()}`)
+            .set("Authorization", `Bearer ${token}`)
+            .send();
+
+        expect(result.status).toBe(404);
     });
 });
