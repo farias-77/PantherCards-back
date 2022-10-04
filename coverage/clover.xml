@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1664901848507" clover="3.2.0">
-  <project timestamp="1664901848508" name="All files">
-    <metrics statements="309" coveredstatements="299" conditionals="41" coveredconditionals="30" methods="65" coveredmethods="61" elements="415" coveredelements="390" complexity="0" loc="309" ncloc="309" packages="9" files="18" classes="18"/>
+<coverage generated="1664902334492" clover="3.2.0">
+  <project timestamp="1664902334492" name="All files">
+    <metrics statements="309" coveredstatements="299" conditionals="41" coveredconditionals="29" methods="65" coveredmethods="61" elements="415" coveredelements="389" complexity="0" loc="309" ncloc="309" packages="9" files="18" classes="18"/>
     <package name="src">
       <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="app.ts" path="/home/gabrielfarias/Documents/PantherCards/PantherCards - back/src/app.ts">
@@ -265,9 +265,9 @@
       </file>
     </package>
     <package name="src.services">
-      <metrics statements="94" coveredstatements="89" conditionals="23" coveredconditionals="18" methods="28" coveredmethods="25"/>
+      <metrics statements="94" coveredstatements="89" conditionals="23" coveredconditionals="17" methods="28" coveredmethods="25"/>
       <file name="deckServices.ts" path="/home/gabrielfarias/Documents/PantherCards/PantherCards - back/src/services/deckServices.ts">
-        <metrics statements="44" coveredstatements="42" conditionals="14" coveredconditionals="10" methods="15" coveredmethods="14"/>
+        <metrics statements="44" coveredstatements="42" conditionals="14" coveredconditionals="9" methods="15" coveredmethods="14"/>
         <line num="2" count="2" type="stmt"/>
         <line num="11" count="2" type="stmt"/>
         <line num="12" count="7" type="stmt"/>
@@ -288,7 +288,7 @@
         <line num="55" count="5" type="stmt"/>
         <line num="58" count="2" type="stmt"/>
         <line num="59" count="3" type="stmt"/>
-        <line num="61" count="3" type="cond" truecount="5" falsecount="2"/>
+        <line num="61" count="3" type="cond" truecount="4" falsecount="3"/>
         <line num="62" count="0" type="stmt"/>
         <line num="68" count="3" type="stmt"/>
         <line num="71" count="2" type="stmt"/>
