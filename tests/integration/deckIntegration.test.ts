@@ -190,3 +190,26 @@ describe("Testa /GET em /deck/result/:deckId", () => {
         expect(result.body).toBeInstanceOf(Array);
     });
 });
+
+describe("Testa /DELETE em/deck/:deckId", () => {
+    it("Testa com id válido -> deve retornar 200", async () => {
+        const deck = deckFactory();
+        const user = userFactory();
+        const deckResult = resultFactory();
+
+        const { body: signUp } = await server.post("/sign-up").send(user);
+        const token = await tokenFactory(signUp.id);
+
+        const { body: createdDeck } = await server
+            .post("/deck")
+            .set("Authorization", `Bearer ${token}`)
+            .send(deck);
+
+        const result = await server
+            .delete(`/deck/${createdDeck.id}`)
+            .set("Authorization", `Bearer ${token}`)
+            .send();
+
+        expect(result.status).toBe(200);
+    });
+});
