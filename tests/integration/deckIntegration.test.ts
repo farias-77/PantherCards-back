@@ -14,8 +14,11 @@ describe("Testa /POST de decks", () => {
         const user = userFactories.userFactory();
 
         const signUp = await server.post("/sign-up").send(user);
-        const token = userFactories.tokenFactory(signUp.body.id);
+        const { body: signIn } = await server
+            .post("/sign-in")
+            .send({ email: user.email, password: user.password });
 
+        const token = signIn.token;
         const result = await server
             .post("/deck")
             .set({ Authorization: `Bearer ${token}` })
@@ -30,7 +33,11 @@ describe("Testa /POST de decks", () => {
         const user = userFactories.userFactory();
 
         const signUp = await server.post("/sign-up").send(user);
-        const token = userFactories.tokenFactory(signUp.body.id);
+        const { body: signIn } = await server
+            .post("/sign-in")
+            .send({ email: user.email, password: user.password });
+
+        const token = signIn.token;
         await server
             .post("/deck")
             .set({ Authorization: `Bearer ${token}` })
@@ -50,24 +57,43 @@ describe("Testa /POST de deckQuestions", () => {
         const deck = deckFactories.deckFactory();
         const user = userFactories.userFactory();
 
-        await server.post("/sign-up").send(user);
-        const signIn = await server
-            .post("/sign-in")
-            .send({ email: user.email, password: user.password });
+        const signUp = await server.post("/sign-up").send(user);
+        const token = await userFactories.tokenFactory(signUp.body.id);
 
         const createdDeck = await server
             .post("/deck")
-            .set({ Authorization: `Bearer ${signIn.body.token}` })
+            .set({ Authorization: `Bearer ${token}` })
             .send(deck);
 
         const questions = deckFactories.questionsFactory();
 
         const result = await server
             .post(`/deck/questions/${createdDeck.body.id}`)
-            .set({ Authorization: `Bearer ${signIn.body.token}` })
+            .set({ Authorization: `Bearer ${token}` })
             .send(questions);
 
         expect(result.status).toBe(201);
-        expect(result.body).toBeInstanceOf(Array);
+        expect(result.body).toBeInstanceOf(Object);
+    });
+});
+
+describe("Testa /GET em decks por id", () => {
+    it("Testa com id válido -> deve retornar 200 e o deck", async () => {
+        const deck = deckFactories.deckFactory();
+        const user = userFactories.userFactory();
+
+        const signUp = await server.post("/sign-up").send(user);
+        const { body: signIn } = await server
+            .post("/sign-in")
+            .send({ email: user.email, password: user.password });
+        const { body: createdDeck } = await server
+            .post("/deck")
+            .set({ Authorization: `Bearer ${signIn.token}` })
+            .send(deck);
+
+        const result = await server.get(`/deck/${createdDeck.id}`).send();
+
+        expect(result.status).toBe(200);
+        expect(result.body).toBeInstanceOf(Object);
     });
 });

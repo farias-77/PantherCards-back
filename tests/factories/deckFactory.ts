@@ -8,18 +8,20 @@ export function deckFactory() {
 }
 
 export function questionsFactory() {
-    return [
-        {
-            question: faker.lorem.words(5),
-            answer: faker.lorem.words(3),
-        },
-        {
-            question: faker.lorem.words(5),
-            answer: faker.lorem.words(3),
-        },
-        {
-            question: faker.lorem.words(5),
-            answer: faker.lorem.words(3),
-        },
-    ];
+    return {
+        questions: [
+            {
+                question: faker.lorem.words(5),
+                answer: faker.lorem.words(3),
+            },
+            {
+                question: faker.lorem.words(5),
+                answer: faker.lorem.words(3),
+            },
+            {
+                question: faker.lorem.words(5),
+                answer: faker.lorem.words(3),
+            },
+        ],
+    };
 }

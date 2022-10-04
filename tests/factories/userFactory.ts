@@ -11,7 +11,7 @@ export function userFactory() {
     };
 }
 
-export function tokenFactory(id: number) {
+export async function tokenFactory(id: number) {
     const secretKey: string = String(process.env.JWT_SECRET);
     const token: string = jwt.sign({ id }, secretKey);
 
