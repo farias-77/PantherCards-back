@@ -2,7 +2,11 @@ import { faker } from "@faker-js/faker";
 import supertest from "supertest";
 import app from "../../src/app";
 
-import { deckFactory, questionsFactory } from "../factories/deckFactory";
+import {
+    deckFactory,
+    questionsFactory,
+    resultFactory,
+} from "../factories/deckFactory";
 import { tokenFactory, userFactory } from "../factories/userFactory";
 
 const server = supertest(app);
@@ -136,5 +140,29 @@ describe("Testa /GET em /deck/user/:userId", () => {
             .send();
 
         expect(result.status).toBe(404);
+    });
+});
+
+describe("Testa /POST em /deck/result/:deckId", () => {
+    it("Testa com body válido", async () => {
+        const deck = deckFactory();
+        const user = userFactory();
+        const deckResult = resultFactory();
+
+        const { body: signUp } = await server.post("/sign-up").send(user);
+        const token = await tokenFactory(signUp.id);
+
+        const { body: createdDeck } = await server
+            .post("/deck")
+            .set("Authorization", `Bearer ${token}`)
+            .send(deck);
+
+        const result = await server
+            .post(`/deck/result/${createdDeck.id}`)
+            .set("Authorization", `Bearer ${token}`)
+            .send(deckResult);
+
+        expect(result.status).toBe(201);
+        expect(result.body).toBeInstanceOf(Object);
     });
 });

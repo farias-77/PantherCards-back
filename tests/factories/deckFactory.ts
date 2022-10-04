@@ -25,3 +25,10 @@ export function questionsFactory() {
         ],
     };
 }
+
+export function resultFactory() {
+    return {
+        score: faker.datatype.number({ min: 1 }),
+        time: faker.datatype.number({ min: 1 }),
+    };
+}
