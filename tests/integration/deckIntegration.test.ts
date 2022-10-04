@@ -1,5 +1,3 @@
-import { prisma } from "../../src/config/database";
-import { faker } from "@faker-js/faker";
 import supertest from "supertest";
 import app from "../../src/app";
 
@@ -11,13 +9,10 @@ const server = supertest(app);
 describe("Testa /POST de decks", () => {
     it("Testa com name válido -> deve retornar 201 e o deck criado", async () => {
         const deck = deckFactories.deckFactory();
-        const user = userFactories.userFactory();
 
-        const signUp = await server.post("/sign-up").send(user);
-        const userId = await prisma.users.findFirst({
-            where: { email: user.email },
-        });
-        const token = userFactories.tokenFactory(userId?.id || 1);
+        const user = userFactories.userFactory();
+        const { body: signUp } = await server.post("/sign-up").send(user);
+        const token = await userFactories.tokenFactory(signUp.id);
 
         const result = await server
             .post("/deck")

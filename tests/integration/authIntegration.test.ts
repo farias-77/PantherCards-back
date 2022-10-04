@@ -11,6 +11,10 @@ beforeEach(async () => {
 });
 
 afterAll(async () => {
+    await prisma.$executeRaw`DELETE FROM "deckResults";`;
+    await prisma.$executeRaw`DELETE FROM "deckQuestions";`;
+    await prisma.$executeRaw`DELETE FROM decks;`;
+    await prisma.$executeRaw`DELETE FROM users;`;
     await prisma.$disconnect();
 });
 
