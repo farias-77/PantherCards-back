@@ -14,11 +14,11 @@ describe("Testa /POST de decks", () => {
         const user = userFactories.userFactory();
 
         const signUp = await server.post("/sign-up").send(user);
-        const { body: signIn } = await server
-            .post("/sign-in")
-            .send({ email: user.email, password: user.password });
+        const userId = await prisma.users.findFirst({
+            where: { email: user.email },
+        });
+        const token = userFactories.tokenFactory(userId?.id || 1);
 
-        const token = signIn.token;
         const result = await server
             .post("/deck")
             .set({ Authorization: `Bearer ${token}` })
@@ -86,12 +86,17 @@ describe("Testa /GET em decks por id", () => {
         const { body: signIn } = await server
             .post("/sign-in")
             .send({ email: user.email, password: user.password });
+
+        const token = await signIn.token;
         const { body: createdDeck } = await server
             .post("/deck")
-            .set({ Authorization: `Bearer ${signIn.token}` })
+            .set({ Authorization: `Bearer ${token}` })
             .send(deck);
 
-        const result = await server.get(`/deck/${createdDeck.id}`).send();
+        const result = await server
+            .get(`/deck/${createdDeck.id}`)
+            .set({ Authorization: `Bearer ${token}` })
+            .send();
 
         expect(result.status).toBe(200);
         expect(result.body).toBeInstanceOf(Object);
