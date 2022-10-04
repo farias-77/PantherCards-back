@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1664900300610" clover="3.2.0">
-  <project timestamp="1664900300610" name="All files">
-    <metrics statements="308" coveredstatements="205" conditionals="41" coveredconditionals="14" methods="64" coveredmethods="28" elements="413" coveredelements="247" complexity="0" loc="308" ncloc="308" packages="9" files="18" classes="18"/>
+<coverage generated="1664900480341" clover="3.2.0">
+  <project timestamp="1664900480341" name="All files">
+    <metrics statements="307" coveredstatements="206" conditionals="41" coveredconditionals="15" methods="64" coveredmethods="28" elements="412" coveredelements="249" complexity="0" loc="307" ncloc="307" packages="9" files="18" classes="18"/>
     <package name="src">
       <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="app.ts" path="/home/gabrielfarias/Documents/PantherCards/PantherCards - back/src/app.ts">
@@ -37,11 +37,11 @@
         <line num="9" count="2" type="stmt"/>
         <line num="10" count="2" type="stmt"/>
         <line num="13" count="2" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
-        <line num="17" count="1" type="stmt"/>
-        <line num="18" count="1" type="stmt"/>
-        <line num="20" count="1" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
         <line num="23" count="2" type="stmt"/>
         <line num="24" count="0" type="stmt"/>
         <line num="25" count="0" type="stmt"/>
@@ -96,13 +96,13 @@
         <metrics statements="18" coveredstatements="18" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
         <line num="4" count="2" type="stmt"/>
         <line num="6" count="2" type="stmt"/>
-        <line num="7" count="8" type="stmt"/>
-        <line num="12" count="8" type="stmt"/>
-        <line num="14" count="8" type="stmt"/>
-        <line num="15" count="7" type="stmt"/>
-        <line num="16" count="6" type="stmt"/>
-        <line num="17" count="5" type="stmt"/>
-        <line num="19" count="5" type="stmt"/>
+        <line num="7" count="9" type="stmt"/>
+        <line num="12" count="9" type="stmt"/>
+        <line num="14" count="9" type="stmt"/>
+        <line num="15" count="8" type="stmt"/>
+        <line num="16" count="7" type="stmt"/>
+        <line num="17" count="6" type="stmt"/>
+        <line num="19" count="6" type="stmt"/>
         <line num="26" count="2" type="stmt"/>
         <line num="27" count="2" type="stmt"/>
         <line num="29" count="2" type="stmt"/>
@@ -115,39 +115,38 @@
       </file>
     </package>
     <package name="src.middlewares">
-      <metrics statements="25" coveredstatements="19" conditionals="13" coveredconditionals="7" methods="4" coveredmethods="4"/>
+      <metrics statements="24" coveredstatements="19" conditionals="13" coveredconditionals="7" methods="4" coveredmethods="4"/>
       <file name="errorHandlingMiddleware.ts" path="/home/gabrielfarias/Documents/PantherCards/PantherCards - back/src/middlewares/errorHandlingMiddleware.ts">
-        <metrics statements="7" coveredstatements="4" conditionals="3" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <metrics statements="6" coveredstatements="4" conditionals="3" coveredconditionals="2" methods="1" coveredmethods="1"/>
         <line num="3" count="2" type="stmt"/>
-        <line num="9" count="4" type="cond" truecount="1" falsecount="0"/>
-        <line num="11" count="2" type="cond" truecount="1" falsecount="0"/>
-        <line num="12" count="2" type="stmt"/>
+        <line num="9" count="5" type="cond" truecount="1" falsecount="0"/>
+        <line num="11" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="12" count="3" type="stmt"/>
         <line num="14" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="15" count="0" type="stmt"/>
         <line num="16" count="0" type="stmt"/>
       </file>
       <file name="schemaValidationMiddleware.ts" path="/home/gabrielfarias/Documents/PantherCards/PantherCards - back/src/middlewares/schemaValidationMiddleware.ts">
         <metrics statements="6" coveredstatements="5" conditionals="1" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="3" count="2" type="stmt"/>
         <line num="4" count="10" type="stmt"/>
-        <line num="5" count="11" type="stmt"/>
-        <line num="7" count="11" type="cond" truecount="0" falsecount="1"/>
+        <line num="5" count="14" type="stmt"/>
+        <line num="7" count="14" type="cond" truecount="0" falsecount="1"/>
         <line num="8" count="0" type="stmt"/>
-        <line num="10" count="11" type="stmt"/>
+        <line num="10" count="14" type="stmt"/>
       </file>
       <file name="tokenValidationMiddleware.ts" path="/home/gabrielfarias/Documents/PantherCards/PantherCards - back/src/middlewares/tokenValidationMiddleware.ts">
         <metrics statements="12" coveredstatements="10" conditionals="9" coveredconditionals="5" methods="1" coveredmethods="1"/>
         <line num="2" count="2" type="stmt"/>
         <line num="4" count="2" type="stmt"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="6" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="7" count="1" type="cond" truecount="3" falsecount="1"/>
-        <line num="8" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="10" count="1" type="cond" truecount="0" falsecount="1"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="7" count="3" type="cond" truecount="3" falsecount="1"/>
+        <line num="8" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="10" count="3" type="cond" truecount="0" falsecount="1"/>
         <line num="11" count="0" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
-        <line num="16" count="1" type="stmt"/>
-        <line num="17" count="1" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
         <line num="19" count="0" type="stmt"/>
       </file>
     </package>
@@ -157,8 +156,8 @@
         <metrics statements="31" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="12" coveredmethods="2"/>
         <line num="2" count="2" type="stmt"/>
         <line num="5" count="2" type="stmt"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
         <line num="17" count="2" type="stmt"/>
         <line num="21" count="0" type="stmt"/>
         <line num="29" count="0" type="stmt"/>
@@ -175,8 +174,8 @@
         <line num="59" count="0" type="stmt"/>
         <line num="63" count="0" type="stmt"/>
         <line num="66" count="2" type="stmt"/>
-        <line num="70" count="1" type="stmt"/>
-        <line num="74" count="1" type="stmt"/>
+        <line num="70" count="3" type="stmt"/>
+        <line num="74" count="3" type="stmt"/>
         <line num="77" count="2" type="stmt"/>
         <line num="82" count="0" type="stmt"/>
         <line num="91" count="0" type="stmt"/>
@@ -191,12 +190,12 @@
         <metrics statements="15" coveredstatements="12" conditionals="4" coveredconditionals="0" methods="6" coveredmethods="4"/>
         <line num="1" count="3" type="stmt"/>
         <line num="5" count="3" type="stmt"/>
-        <line num="6" count="10" type="stmt"/>
+        <line num="6" count="11" type="stmt"/>
         <line num="13" count="3" type="stmt"/>
-        <line num="14" count="6" type="stmt"/>
+        <line num="14" count="7" type="stmt"/>
         <line num="21" count="3" type="stmt"/>
-        <line num="22" count="5" type="stmt"/>
-        <line num="26" count="5" type="stmt"/>
+        <line num="22" count="6" type="stmt"/>
+        <line num="26" count="6" type="stmt"/>
         <line num="29" count="3" type="stmt"/>
         <line num="30" count="0" type="stmt"/>
         <line num="33" count="3" type="stmt"/>
@@ -266,17 +265,17 @@
       </file>
     </package>
     <package name="src.services">
-      <metrics statements="94" coveredstatements="59" conditionals="23" coveredconditionals="7" methods="28" coveredmethods="11"/>
+      <metrics statements="94" coveredstatements="60" conditionals="23" coveredconditionals="8" methods="28" coveredmethods="11"/>
       <file name="deckServices.ts" path="/home/gabrielfarias/Documents/PantherCards/PantherCards - back/src/services/deckServices.ts">
-        <metrics statements="44" coveredstatements="17" conditionals="14" coveredconditionals="0" methods="15" coveredmethods="2"/>
+        <metrics statements="44" coveredstatements="18" conditionals="14" coveredconditionals="1" methods="15" coveredmethods="2"/>
         <line num="2" count="2" type="stmt"/>
         <line num="11" count="2" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
         <line num="15" count="2" type="stmt"/>
-        <line num="17" count="1" type="stmt"/>
-        <line num="19" count="1" type="cond" truecount="0" falsecount="1"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="26" count="1" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="19" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
         <line num="29" count="2" type="stmt"/>
         <line num="33" count="0" type="stmt"/>
         <line num="35" count="0" type="cond" truecount="0" falsecount="5"/>
@@ -320,22 +319,22 @@
         <line num="4" count="3" type="stmt"/>
         <line num="5" count="3" type="stmt"/>
         <line num="7" count="3" type="stmt"/>
-        <line num="11" count="9" type="cond" truecount="1" falsecount="0"/>
+        <line num="11" count="10" type="cond" truecount="1" falsecount="0"/>
         <line num="12" count="1" type="stmt"/>
-        <line num="18" count="8" type="stmt"/>
+        <line num="18" count="9" type="stmt"/>
         <line num="21" count="3" type="stmt"/>
-        <line num="22" count="7" type="stmt"/>
-        <line num="24" count="7" type="cond" truecount="1" falsecount="0"/>
+        <line num="22" count="8" type="stmt"/>
+        <line num="24" count="8" type="cond" truecount="1" falsecount="0"/>
         <line num="25" count="1" type="stmt"/>
-        <line num="31" count="6" type="stmt"/>
+        <line num="31" count="7" type="stmt"/>
         <line num="34" count="3" type="stmt"/>
-        <line num="35" count="6" type="stmt"/>
-        <line num="37" count="6" type="cond" truecount="1" falsecount="0"/>
+        <line num="35" count="7" type="stmt"/>
+        <line num="37" count="7" type="cond" truecount="1" falsecount="0"/>
         <line num="38" count="1" type="stmt"/>
-        <line num="44" count="5" type="stmt"/>
+        <line num="44" count="6" type="stmt"/>
         <line num="47" count="3" type="stmt"/>
-        <line num="48" count="6" type="stmt"/>
-        <line num="53" count="6" type="stmt"/>
+        <line num="48" count="7" type="stmt"/>
+        <line num="53" count="7" type="stmt"/>
         <line num="56" count="3" type="stmt"/>
         <line num="57" count="2" type="stmt"/>
         <line num="59" count="2" type="cond" truecount="1" falsecount="0"/>
@@ -361,11 +360,11 @@
         <line num="106" count="1" type="stmt"/>
         <line num="108" count="0" type="stmt"/>
         <line num="112" count="1" type="stmt"/>
-        <line num="116" count="6" type="stmt"/>
-        <line num="117" count="6" type="stmt"/>
-        <line num="119" count="6" type="stmt"/>
+        <line num="116" count="7" type="stmt"/>
+        <line num="117" count="7" type="stmt"/>
+        <line num="119" count="7" type="stmt"/>
         <line num="122" count="3" type="stmt"/>
-        <line num="123" count="10" type="stmt"/>
+        <line num="123" count="11" type="stmt"/>
       </file>
     </package>
     <package name="tests.factories">
@@ -374,7 +373,7 @@
         <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
         <line num="11" count="0" type="stmt"/>
       </file>
@@ -383,12 +382,12 @@
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="6" count="1" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
-        <line num="16" count="1" type="stmt"/>
-        <line num="18" count="1" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
       </file>
     </package>
   </project>

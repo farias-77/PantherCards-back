@@ -12,6 +12,6 @@ export default function errorHandlingMiddleware(
         return res.status(401).send(error.message);
 
     if (error.type === "not found") return res.status(404).send(error.message);
-    console.log(error);
+
     return res.sendStatus(500);
 }

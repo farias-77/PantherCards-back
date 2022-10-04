@@ -21,4 +21,24 @@ describe("Testa /POST em /deck", () => {
         expect(result.status).toBe(201);
         expect(result.body).toBeInstanceOf(Object);
     });
+
+    it("Testa com name inválido -> deve retornar 401", async () => {
+        const deck = deckFactory();
+        const user = userFactory();
+
+        const { body: signUp } = await server.post("/sign-up").send(user);
+        const token = await tokenFactory(signUp.id);
+
+        await server
+            .post("/deck")
+            .set("Authorization", `Bearer ${token}`)
+            .send(deck);
+
+        const result = await server
+            .post("/deck")
+            .set("Authorization", `Bearer ${token}`)
+            .send(deck);
+
+        expect(result.status).toBe(401);
+    });
 });
